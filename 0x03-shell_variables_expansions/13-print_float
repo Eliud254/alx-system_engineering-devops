@@ -1,0 +1,2 @@
+#!/bin/bash
+pritf "%.2f \n" $NUM
