@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#"Best School "print 10 times
+#Print hi at 9th iteration
+
+count=0
+
+while [ $count -lt 10 ]
+do
+if [ $count -eq 4 ]
+then
+    echo "bad luck"
+elif [ $count -eq 8 ]
+then
+    echo "good luck"
+   
+else
+	echo "Best School"
+	(( count++ ))
+done
