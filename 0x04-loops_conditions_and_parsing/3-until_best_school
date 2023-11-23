@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#"Best School"should print ten times
+#"Holberton School"print ten times
 
 count=0
 until [$count -eq 10 ]
