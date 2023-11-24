@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Show the Process ID (PID) of the current shell or script.
+# Use $$ to get and print the PID.
+
+echo $$i
