@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
-# Processes Apache log files in a list format.
+# This script processes Apache log files in a list format.
+# It organizes visitors based on their IP addresses and HTTP status codes.
+# It then presents the count, IP address, and HTTP status code for each log entry, sorted in descending order.
+# It utilizes the 'awk' and 'sort' commands for data manipulation.
 
 awk '{ print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
