@@ -1,10 +1,7 @@
-#  Installing Flask from pip3:
-#  Requirements:
-#  pip3
-#  Flask=2.1.0
+# Installs puppet-lint package
 
-package{'flask':
+package {'flask':
   ensure   => '2.1.0',
   name     => 'flask',
-  provider => 'pip3',
+  provider => 'pip3'
 }
