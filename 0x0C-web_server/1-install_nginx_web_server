@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
-# bash script to install Nginx server
-# Install Nginx
-sudo apt-get update
+# This script installs nginx on ubuntu server
+
+sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y nginx
-
-# Configure Nginx to listen on port 80
-sudo sed -i 's/listen\s*80;/listen 80 default_server;/g' /etc/nginx/sites-available/default
-
-# Create a new HTML file with the string "Hello World!"
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-# Restart Nginx
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo ufw allow 'Nginx HTTP'
 sudo /etc/init.d/nginx restart
