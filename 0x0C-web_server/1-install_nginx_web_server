@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
-# This script installs nginx on ubuntu server
+# Commands to install Nginx on Web-Sever-01
 
-sudo apt-get update -y && sudo apt-get upgrade -y
-sudo apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+# Update Packages before making Installations
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Configur  Uncomplicated Firewall (UFW) to allow incoming traffic for the Nginx HTTP service
 sudo ufw allow 'Nginx HTTP'
-sudo /etc/init.d/nginx restart
+
+# Creating an index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Test Nginx configurations for Syntax errors
+sudo nginx -t
+
+# Restart Nginx
+sudo service nginx start
+
+
