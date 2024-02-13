@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# To check if the username argument is availlable
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <username>"
+    exit 1
+fi
+
+# Assigning the username from the command line argument
+username=$1
+
+# Runing the whoami command
+sudo -u "$username" whoami
