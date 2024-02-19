@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Data from an API"""
+"""Reguest data from an API"""
 
 import requests
 import sys
 
 
 def getInformation(employeeid):
-    """Returns information based on ID"""
+    """To returns information based on ID"""
     url = "https://jsonplaceholder.typicode.com/"
     endpoint = url + 'users/{}'.format(employeeid)
     employee = requests.get(endpoint).json()
