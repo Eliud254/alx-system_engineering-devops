@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-A module for count_words function
+ Module to count_words function
 """
 import requests
 
@@ -8,8 +8,8 @@ import requests
 def count_words(subreddit, word_list, new_after='',
                 words_dict={}):
     """
-    The recursive function that queries Reddit API,
-    parses title of all hot articles, and prints a
+    Recursive function that queries Reddit API,
+    parses title of the hot articles and then prints
     sorted count of given keywords
     """
 

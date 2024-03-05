@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Using the reddit's API
+Applying reddit's API
 """
 import requests
 after = None
 
 
 def recurse(subreddit, hot_list=[]):
-    """returning the top ten post titles in a recursive manner"""
+    """Returns top ten post titles in recursive manner"""
     global after
     user_agent = {'User-Agent': 'api_advanced-project'}
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
