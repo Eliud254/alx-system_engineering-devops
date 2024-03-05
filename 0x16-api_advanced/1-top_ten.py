@@ -1,28 +1,33 @@
 #!/usr/bin/python3
+
 """
-Using the reddit's API
+Printing all the titles of the first ten hot posts listed for given subreddit
 """
-import requests
-after = None
+
+from requests import get
 
 
-def recurse(subreddit, hot_list=[]):
-    """returning the top ten post titles in a recursive manner"""
-    global after
-    user_agent = {'User-Agent': 'api_advanced-project'}
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    parameters = {'after': after}
-    results = requests.get(url, params=parameters, headers=user_agent,
-                           allow_redirects=False)
+def top_ten(subreddit):
+    """
+    This function that queries the Reddit API and prints the titles
+    of the first ten hot posts listed for given subreddit
+    """
 
-    if results.status_code == 200:
-        after_data = results.json().get("data").get("after")
-        if after_data is not None:
-            after = after_data
-            recurse(subreddit, hot_list)
-        all_titles = results.json().get("data").get("children")
-        for title_ in all_titles:
-            hot_list.append(title_.get("data").get("title"))
-        return hot_list
-    else:
-        return (None)
+    if subreddit is None or not isinstance(subreddit, str):
+        print("None")
+
+    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
+    params = {'limit': 10}
+    url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
+
+    response = get(url, headers=user_agent, params=params)
+    results = response.json()
+
+    try:
+        my_data = results.get('data').get('children')
+
+        for i in my_data:
+            print(i.get('data').get('title'))
+
+    except Exception:
+        print("None)
