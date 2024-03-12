@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""Function to query subscribers on a given Reddit subreddit."""
 import requests
 
 
@@ -23,7 +22,9 @@ def number_of_subscribers(subreddit):
         response.raise_for_status()
 
         data = response.json()
-        return data.get("data", {}).get("subscribers", 0)
+        subscribers = data.get("data", {}).get("subscribers", 0)
+        print("OK")
+        return subscribers
     except requests.exceptions.RequestException as e:
         print(f"Error querying Reddit API: {e}")
         return 0
